@@ -23,9 +23,9 @@ Below is an overview of the included packages, with a short description of their
 These are the primary dependencies required to use this project.
 
 - ROS 2 [Jazzy](https://docs.ros.org/en/jazzy/Installation.html)
-- Gazebo [Harmonic](https://gazebosim.org/docs/harmonic)
+- Gazebo [Harmonic](https://gazebosim.org/docs/harmonic) (default version in ROS 2 Jazzy)
 
-All additional dependencies are either pulled via [vcstool](https://wiki.ros.org/vcstool) ([panda_gz_moveit2.repos](./panda_gz_moveit2.repos)) or installed via [rosdep](https://wiki.ros.org/rosdep) during the building process below.
+All additional dependencies are pulled via [rosdep](https://wiki.ros.org/rosdep) during the building process below.
 
 ### Building
 
@@ -34,10 +34,8 @@ Clone this repository, import dependencies, install dependencies, and build with
 ```bash
 # Clone this repository into your favourite ROS 2 workspace
 git clone https://github.com/AndrejOrsula/panda_gz_moveit2.git
-# Import dependencies
-vcs import < panda_gz_moveit2/panda_gz_moveit2.repos
 # Install dependencies
-GAZEBO_VERSION=harmonic rosdep install -y -r -i --rosdistro ${ROS_DISTRO} --from-paths .
+rosdep install -y -r -i --rosdistro ${ROS_DISTRO} --from-paths .
 # Build
 colcon build --merge-install --symlink-install --cmake-args "-DCMAKE_BUILD_TYPE=Release"
 ```
