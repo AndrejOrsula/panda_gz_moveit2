@@ -1,4 +1,4 @@
-<sdf version='1.9'>
+<sdf version='1.11'>
   <model name='panda'>
     <joint name='panda_joint_base' type='fixed'>
       <pose relative_to='__model__'>0 0 0 0 0 0</pose>

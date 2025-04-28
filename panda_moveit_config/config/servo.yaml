@@ -7,7 +7,8 @@ scale:
   joint: 0.5 # Max joint angular/linear velocity. Rads or Meters per publish period. Only used for joint commands on joint_command_in_topic.
 
 ## Properties of outgoing commands
-publish_period: 0.2 # 1/Nominal publish rate [seconds]
+max_expected_latency: 0.4
+publish_period: 0.1 # 1/Nominal publish rate [seconds]
 low_latency_mode: false # Set this to true to publish as soon as an incoming Twist command is received (publish_period is ignored)
 
 # What type of topic does your robot driver expect?

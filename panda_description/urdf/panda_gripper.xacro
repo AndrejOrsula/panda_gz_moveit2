@@ -1,4 +1,4 @@
-<?xml version="1.0"?>
+<?xml version="1.1"?>
 <!-- Xacro for Franka Emika Panda gripper -->
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro">
 

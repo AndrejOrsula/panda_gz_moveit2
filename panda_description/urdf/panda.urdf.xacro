@@ -1,7 +1,7 @@
-<?xml version="1.0"?>
+<?xml version="1.1"?>
 <!-- URDF for Franka Emika Panda -->
 <robot xmlns:xacro="http://wiki.ros.org/xacro" name="$(arg name)">
-
+  
   <!--                   -->
   <!-- Imported elements -->
   <!--                   -->
@@ -107,10 +107,10 @@
     />
   </xacro:if>
 
-  <!-- Gazebo - ROS 2 control (Ignition) -->
+  <!-- Gazebo - ROS 2 control -->
   <xacro:if value="$(arg ros2_control)">
     <xacro:if value="${'gz' in '$(arg ros2_control_plugin)'}">
-      <xacro:ign_ros2_control controller_parameters="$(arg ros2_controller_parameters)"/>
+      <xacro:gz_ros2_control controller_parameters="$(arg ros2_controller_parameters)"/>
     </xacro:if>
   </xacro:if>
 

@@ -1,6 +1,6 @@
-# panda_ign_moveit2
+# panda_gz_moveit2
 
-Software packages for Franka Emika Panda that enable manipulation with MoveIt 2 inside ~~Ignition~~ Gazebo. For control, [gz_ros2_control](https://github.com/ros-controls/gz_ros2_control) is used.
+Software packages for Franka Emika Panda that enable manipulation with MoveIt 2 inside Gazebo. For control, [gz_ros2_control](https://github.com/ros-controls/gz_ros2_control) is used.
 
 <p align="left" float="middle">
   <img width="50.0%" src="https://user-images.githubusercontent.com/22929099/147374612-3d0209d3-574e-4a4f-8077-edbbcf8fc47d.gif" alt="Animation of ex_follow_target"/>
@@ -23,21 +23,19 @@ Below is an overview of the included packages, with a short description of their
 These are the primary dependencies required to use this project.
 
 - ROS 2 [Humble](https://docs.ros.org/en/humble/Installation.html)
-- Gazebo [Fortress](https://gazebosim.org/docs/fortress)
+- Gazebo [Fortress](https://gazebosim.org/docs/fortress) (default version in ROS 2 Humble)
 
-All additional dependencies are either pulled via [vcstool](https://wiki.ros.org/vcstool) ([panda_ign_moveit2.repos](./panda_ign_moveit2.repos)) or installed via [rosdep](https://wiki.ros.org/rosdep) during the building process below.
+All additional dependencies are pulled via [rosdep](https://wiki.ros.org/rosdep) during the building process below.
 
 ### Building
 
-Clone this repository, import dependencies, install dependencies and build with [colcon](https://colcon.readthedocs.io).
+Clone this repository, import dependencies, install dependencies, and build with [colcon](https://colcon.readthedocs.io).
 
 ```bash
 # Clone this repository into your favourite ROS 2 workspace
-git clone https://github.com/AndrejOrsula/panda_ign_moveit2.git
-# Import dependencies
-vcs import < panda_ign_moveit2/panda_ign_moveit2.repos
+git clone https://github.com/AndrejOrsula/panda_gz_moveit2.git
 # Install dependencies
-IGNITION_VERSION=fortress rosdep install -y -r -i --rosdistro ${ROS_DISTRO} --from-paths .
+rosdep install -y -r -i --rosdistro ${ROS_DISTRO} --from-paths .
 # Build
 colcon build --merge-install --symlink-install --cmake-args "-DCMAKE_BUILD_TYPE=Release"
 ```

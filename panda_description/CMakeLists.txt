@@ -4,9 +4,9 @@ project(panda_description)
 # Find dependencies
 find_package(ament_cmake REQUIRED)
 
-# Setup environment hooks that automatically prepend IGN_GAZEBO_RESOURCE_PATH and SDF_PATH when sourcing local_setup.<ext>
+# Setup environment hooks that automatically prepend GZ_SIM_RESOURCE_PATH and SDF_PATH when sourcing local_setup.<ext>
 ament_environment_hooks(
-  "cmake/environment_hooks/ign_gazebo_resource_path.bash"
+  "cmake/environment_hooks/gz_sim_resource_path.bash"
   "cmake/environment_hooks/sdf_path.bash"
 )
 

@@ -8,5 +8,5 @@ initial_joint_positions:
     joint6: 1.5707963267948966
     joint7: 0.7853981633974483
   panda_gripper:
-    joint1: 0.0
-    joint2: 0.0
+    joint1: 0.039
+    joint2: 0.039

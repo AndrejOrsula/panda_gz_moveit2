@@ -28,12 +28,12 @@ To see if everything works in an isolated environment, try using [ex_fake_contro
 ros2 launch panda_moveit_config ex_fake_control.launch.py
 ```
 
-### ign_control
+### gz_control
 
-For example inside Gazebo, try using [ex_ign_control.launch.py](./launch/ex_ign_control.launch.py) script that allows planning motions with MoveIt 2 and executing them with simulated controllers.
+For example inside Gazebo, try using [ex_gz_control.launch.py](./launch/ex_gz_control.launch.py) script that allows planning motions with MoveIt 2 and executing them with simulated controllers.
 
 ```bash
-ros2 launch panda_moveit_config ex_ign_control.launch.py
+ros2 launch panda_moveit_config ex_gz_control.launch.py
 ```
 
 ## Directory Structure

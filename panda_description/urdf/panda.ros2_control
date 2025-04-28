@@ -1,4 +1,4 @@
-<?xml version="1.0"?>
+<?xml version="1.1"?>
 <!-- Macros that add ros2 control for Franka Emika Panda -->
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro">
 
@@ -26,7 +26,7 @@
           <plugin>fake_components/GenericSystem</plugin>
         </xacro:if>
         <xacro:if value="${plugin == 'gz'}">
-          <plugin>ign_ros2_control/IgnitionSystem</plugin>
+          <plugin>gz_ros2_control/GazeboSimSystem</plugin>
         </xacro:if>
         <xacro:if value="${plugin == 'real'}">
           <xacro:ERROR_ros2_control_for_real_robot_unimplemented/>
@@ -170,7 +170,7 @@
           <plugin>fake_components/GenericSystem</plugin>
         </xacro:if>
         <xacro:if value="${plugin == 'gz'}">
-          <plugin>ign_ros2_control/IgnitionSystem</plugin>
+          <plugin>gz_ros2_control/GazeboSimSystem</plugin>
         </xacro:if>
         <xacro:if value="${plugin == 'real'}">
           <xacro:ERROR_ros2_control_for_real_robot_unimplemented/>
