@@ -1,6 +1,8 @@
 #!/usr/bin/env bash
 
-TAG="andrejorsula/panda_ign_moveit2"
+SCRIPT_DIR="$(cd "$(dirname "$(readlink -f "${BASH_SOURCE[0]}")")" &>/dev/null && pwd)"
+PROJECT_DIR="$(dirname "${SCRIPT_DIR}")"
+TAG="$(basename "${PROJECT_DIR}")"
 
 ## Forward custom volumes and environment variables
 CUSTOM_VOLUMES=()

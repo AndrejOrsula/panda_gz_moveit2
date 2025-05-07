@@ -154,15 +154,8 @@ def generate_launch_description():
         "ompl": {
             "planning_plugin": "ompl_interface/OMPLPlanner",
             # TODO: Re-enable `default_planner_request_adapters/AddRuckigTrajectorySmoothing` once its issues are resolved
-            "request_adapters": ["default_planning_request_adapters/ResolveConstraintFrames",
-                                  "default_planning_request_adapters/ValidateWorkspaceBounds",
-                                  "default_planning_request_adapters/CheckStartStateBounds",
-                                  "default_planning_request_adapters/CheckStartStateCollision"],
-            # # TODO: Reduce start_state_max_bounds_error once spawning with specific joint configuration is enabled
-            "response_adapters": ["default_planning_response_adapters/AddTimeOptimalParameterization",
-#                                  "default_planning_response_adapters/AddRuckigTrajectorySmoothing",
-                                  "default_planning_response_adapters/ValidateSolution",
-                                  "default_planning_response_adapters/DisplayMotionPath"],
+            "request_adapters": "default_planner_request_adapters/AddTimeOptimalParameterization default_planner_request_adapters/ResolveConstraintFrames default_planner_request_adapters/FixWorkspaceBounds default_planner_request_adapters/FixStartStateBounds default_planner_request_adapters/FixStartStateCollision default_planner_request_adapters/FixStartStatePathConstraints",
+            "response_adapters": "default_planning_response_adapters/AddTimeOptimalParameterization default_planning_response_adapters/AddRuckigTrajectorySmoothing default_planning_response_adapters/ValidateSolution default_planning_response_adapters/DisplayMotionPath",
             "start_state_max_bounds_error": 0.31416,
         },
     }
@@ -276,7 +269,7 @@ def generate_launch_description():
         # move_servo
         Node(
             package="moveit_servo",
-            executable="servo_node",
+            executable="servo_node_main",
             output="log",
             arguments=["--ros-args", "--log-level", log_level],
             parameters=[

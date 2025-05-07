@@ -3,7 +3,7 @@
 SCRIPT_DIR="$(cd "$(dirname "$(readlink -f "${BASH_SOURCE[0]}")")" &>/dev/null && pwd)"
 PROJECT_DIR="$(dirname "${SCRIPT_DIR}")"
 
-TAG="andrejorsula/$(basename "${PROJECT_DIR}")"
+TAG="$(basename "${PROJECT_DIR}")"
 
 if [ "${#}" -gt "0" ]; then
     if [[ "${1}" != "-"* ]]; then
