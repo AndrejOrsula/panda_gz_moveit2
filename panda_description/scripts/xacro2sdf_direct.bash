@@ -5,7 +5,7 @@ TMP_URDF_PATH=$(mktemp /tmp/panda_XXXXXX.urdf)
 
 # Process xacro into URDF, then convert URDF to SDF and edit the SDF to use relative paths for meshes
 xacro "${1}" "${@:2}" -o "${TMP_URDF_PATH}" &&
-# ign command needs to upgraded to 'gz' in new ROS / Gazebo versions
+
 SDF_XML=$(ign sdf -p "${TMP_URDF_PATH}" | sed "s/model:\/\/panda_description\///g")
 
 # Remove temporary URDF file
