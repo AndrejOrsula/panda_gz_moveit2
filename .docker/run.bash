@@ -1,6 +1,8 @@
 #!/usr/bin/env bash
 
-TAG="andrejorsula/panda_ign_moveit2"
+TAG=$(git -C "${PROJECT_DIR}" remote get-url origin | sed 's/.*\///; s/\.git$//')
+TAG=${TAG}-$(git -C "${PROJECT_DIR}" branch --show-current)
+TAG=${TAG}-$(git -C "${PROJECT_DIR}" rev-parse --short HEAD)
 
 ## Forward custom volumes and environment variables
 CUSTOM_VOLUMES=()
@@ -81,7 +83,7 @@ if [ -n "${ROS_DOMAIN_ID}" ]; then
 fi
 # Synchronize IGN_PARTITION with host
 if [ -n "${IGN_PARTITION}" ]; then
-    CUSTOM_ENVS+=("IGN_PARTITION=${IGN_PARTITION}")
+    CUSTOM_ENVS+=("GZ_PARTITION=${GZ_PARTITION}")
 fi
 # Synchronize RMW configuration with host
 if [ -n "${RMW_IMPLEMENTATION}" ]; then

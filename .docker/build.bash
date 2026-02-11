@@ -3,7 +3,9 @@
 SCRIPT_DIR="$(cd "$(dirname "$(readlink -f "${BASH_SOURCE[0]}")")" &>/dev/null && pwd)"
 PROJECT_DIR="$(dirname "${SCRIPT_DIR}")"
 
-TAG="andrejorsula/$(basename "${PROJECT_DIR}")"
+TAG=$(git -C "${PROJECT_DIR}" remote get-url origin | sed 's/.*\///; s/\.git$//')
+TAG=${TAG}-$(git -C "${PROJECT_DIR}" branch --show-current)
+TAG=${TAG}-$(git -C "${PROJECT_DIR}" rev-parse --short HEAD)
 
 if [ "${#}" -gt "0" ]; then
     if [[ "${1}" != "-"* ]]; then
